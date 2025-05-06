@@ -4,11 +4,21 @@
 #include "../header.h"
 #include "carregar_arquivo.h"
 
+// Funcao estatica para manipular string
+// Retorno: ponteiro para inteiro se a opcao for 1, char se for 2
 static void* manipular_string(char* texto, int opcao, int n);
 
+// Funcao para carregar especificacoes da Maquina de Turing
+// Pre-condicao: arquivo valido
+// Pos-condicao: carrega a Maquina de Turing
 void carregar_arquivo(Maquina* maquina)
 {
-    FILE* fr = fopen("MT.txt", "r");
+    char input[26];
+
+    printf("Insira o nome do arquivo: ");
+    scanf("%[^\n]%*c", input);
+
+    FILE* fr = fopen(input, "r");
     char* texto = (char*) malloc(30 * sizeof(char));
     Lista* l = criar_lista();
     Transicoes aux;
@@ -47,7 +57,7 @@ void carregar_arquivo(Maquina* maquina)
     texto = NULL;
     fclose(fr);
 
-    imprimir_lista(maquina->transicoes); // [DEBUG]
+    // imprimir_lista(maquina->transicoes); // [DEBUG]
 }
 
 static void* manipular_string(char* texto, int opcao, int n)
