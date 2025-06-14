@@ -3,6 +3,16 @@
  ## Esse algoritmo é capaz de fazer reconhecer uma especificação de uma Máquina de Turing e verificar geração de palavras.
 
  Este repositório contém um algoritmo que simula uma Máquina de Turing. O algoritmo foi todo implementado em C. A máquina é baseada em estrutura, porém as transições foram implementadas com estrutura de lista encadeada. O repositório ainda contém três arquivos de teste.
+
+ ### Funcionamento
+
+ Para o processamento de uma palavra, o algoritmo insere "$" para demarcar o final da palavra e "*" para demarcar o inicio.
+
+ Em caso da leitura da fita chegar a "*", a fita é expandida a esquerda a fim de evitar erros de acesso indevido de memória, fazendo assim, a fita toda ser movida mais a direita.
+
+ É necessário carregar um arquivo com as especificações do autômato a ser lido.
+
+ O algoritmo conta com uma função de leitura e extração das especificações do arquivo que seguir a sintaxe abaixo.
  
  ### O formato da especificação deve ser feita da seguinte forma:
  
